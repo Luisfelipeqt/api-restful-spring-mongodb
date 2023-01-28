@@ -22,10 +22,5 @@ public class UserResources {
         return ResponseEntity.ok().body(list);
     }
 
-    @PostMapping
-    public ResponseEntity<List<User>> insert(@RequestBody User user){
-        List<User> list = new ArrayList<>();
-        list.add(user);
-        return ResponseEntity.ok().body(list);
-    }
+
 }
