@@ -22,8 +22,14 @@ public class Program implements CommandLineRunner {
         User maria = new User(null, "Maria Brown", "maria@gmail.com");
         User alex = new User(null, "Alex Green", "alex@gmail.com");
         User bob = new User(null, "Bob Grey", "bob@gmail.com");
+        User laura = new User(null, "Laura Vitória  Campelo Rodrigues", "laura@gmail.com");
+        User stella = new User(null, "Stella Sophia Campelo Rodrigues", "stella@gmail.com");
+        User felipe = new User(null, "Luis Felipe Rodrigues", "luisfelipe@gmail.com");
 
-        userRepository.saveAll(Arrays.asList(maria, alex, bob));
+
+
+
+        userRepository.saveAll(Arrays.asList(maria, alex, bob, laura, stella, felipe));
 
 
 
