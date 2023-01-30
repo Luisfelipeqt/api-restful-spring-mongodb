@@ -1,5 +1,6 @@
 package com.feliperodrigues.workshopmongo.config;
 
+import com.feliperodrigues.workshopmongo.dto.AuthorDTO;
 import com.feliperodrigues.workshopmongo.entities.Post;
 import com.feliperodrigues.workshopmongo.entities.User;
 import com.feliperodrigues.workshopmongo.repository.PostRepository;
@@ -29,6 +30,8 @@ public class Program implements CommandLineRunner {
         sdf.setTimeZone(TimeZone.getTimeZone("GMT"));
 
         userRepository.deleteAll();
+        postRepository.deleteAll();
+
 
         User maria = new User(null, "Maria Brown", "maria@gmail.com");
         User alex = new User(null, "Alex Green", "alex@gmail.com");
@@ -36,13 +39,12 @@ public class Program implements CommandLineRunner {
         User laura = new User(null, "Laura Vitória  Campelo Rodrigues", "laura@gmail.com");
         User stella = new User(null, "Stella Sophia Campelo Rodrigues", "stella@gmail.com");
         User felipe = new User(null, "Luis Felipe Rodrigues", "luisfelipe@gmail.com");
-
-        Post post1 = new Post(null, sdf.parse("29/01/2023"),"Partiu viagem", "Vou viajar para São Paulo, abraços!", stella);
-        Post post2 = new Post(null, sdf.parse("29/01/2023"),"Partiu viagem", "Vou viajar para São Paulo, abraços!", felipe);
-
-
-
         userRepository.saveAll(Arrays.asList(maria, alex, bob, laura, stella, felipe));
+
+
+        Post post1 = new Post(null, sdf.parse("29/01/2023"),"Partiu viagem", "Vou viajar para São Paulo, abraços!", new AuthorDTO(stella));
+        Post post2 = new Post(null, sdf.parse("29/01/2023"),"Partiu viagem", "Vou viajar para São Paulo, abraços!", new AuthorDTO(felipe));
+
 
         postRepository.saveAll(Arrays.asList(post1, post2));
 
