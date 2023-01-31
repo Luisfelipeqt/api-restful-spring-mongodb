@@ -1,8 +1,6 @@
 package com.feliperodrigues.workshopmongo.resources;
 
-import com.feliperodrigues.workshopmongo.dto.UserDTO;
 import com.feliperodrigues.workshopmongo.entities.Post;
-import com.feliperodrigues.workshopmongo.entities.User;
 import com.feliperodrigues.workshopmongo.services.PostService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -27,5 +25,10 @@ public class PostResources {
     }
 
 
+    @GetMapping(value = "/{id}")
+    public ResponseEntity<Post> findById(@PathVariable String id){
+        Post post = postService.findById(id);
+        return ResponseEntity.ok().body(post);
+    }
 
 }

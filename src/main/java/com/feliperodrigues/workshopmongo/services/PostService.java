@@ -1,12 +1,11 @@
 package com.feliperodrigues.workshopmongo.services;
 
 import com.feliperodrigues.workshopmongo.entities.Post;
-import com.feliperodrigues.workshopmongo.entities.User;
 import com.feliperodrigues.workshopmongo.repository.PostRepository;
+import com.feliperodrigues.workshopmongo.services.exception.ObjectNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
@@ -21,8 +20,13 @@ public class PostService {
     }
 
 
-    public List<Post> findById(String id){
-        return postRepository.findAllById(Collections.singleton(id));
+    public Post findById(String id) {
+        Optional<Post> obj = postRepository.findById(id);
+        return obj.orElseThrow(() -> new ObjectNotFoundException("Objeto não encontrado"));
     }
+
 }
+
+
+
 
