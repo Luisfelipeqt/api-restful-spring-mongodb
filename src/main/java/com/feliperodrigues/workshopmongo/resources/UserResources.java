@@ -1,6 +1,7 @@
 package com.feliperodrigues.workshopmongo.resources;
 
 import com.feliperodrigues.workshopmongo.dto.UserDTO;
+import com.feliperodrigues.workshopmongo.entities.Post;
 import com.feliperodrigues.workshopmongo.entities.User;
 import com.feliperodrigues.workshopmongo.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -55,6 +56,14 @@ public class UserResources {
         return ResponseEntity.noContent().build();
 
     }
+
+    @GetMapping(value="/{id}/posts")
+    public ResponseEntity<List<Post>> findPosts(@PathVariable String id) {
+        User obj = userService.findById(id);
+        return ResponseEntity.ok().body(obj.getList());
+    }
+
+
 
 
 }
