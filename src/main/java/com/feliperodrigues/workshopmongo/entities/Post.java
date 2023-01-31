@@ -1,13 +1,13 @@
 package com.feliperodrigues.workshopmongo.entities;
 
 import com.feliperodrigues.workshopmongo.dto.AuthorDTO;
+import com.feliperodrigues.workshopmongo.dto.CommentDTO;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.io.Serial;
 import java.io.Serializable;
-import java.util.Date;
-import java.util.Objects;
+import java.util.*;
 
 @Document(collection = "post")
 public class Post implements Serializable {
@@ -20,6 +20,8 @@ public class Post implements Serializable {
     private String tittle;
     private String body;
     private AuthorDTO author;
+
+    private Set<CommentDTO> list = new HashSet<>();
 
     public Post(){
     }
@@ -71,6 +73,11 @@ public class Post implements Serializable {
     public void setAuthor(AuthorDTO author) {
         this.author = author;
     }
+
+    public Set<CommentDTO> getList() {
+        return list;
+    }
+
 
     @Override
     public boolean equals(Object o) {
