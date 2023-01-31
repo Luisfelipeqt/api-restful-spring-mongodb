@@ -42,11 +42,14 @@ public class Program implements CommandLineRunner {
         userRepository.saveAll(Arrays.asList(maria, alex, bob, laura, stella, felipe));
 
 
-        Post post1 = new Post(null, sdf.parse("29/01/2023"),"Partiu viagem", "Vou viajar para São Paulo, abraços!", new AuthorDTO(stella));
-        Post post2 = new Post(null, sdf.parse("29/01/2023"),"Partiu viagem", "Vou viajar para São Paulo, abraços!", new AuthorDTO(felipe));
+        Post post1 = new Post(null, sdf.parse("29/01/2023"),"Partiu viagem", "Vou viajar para São Paulo, abraços!", new AuthorDTO(maria));
+        Post post2 = new Post(null, sdf.parse("29/01/2023"),"Partiu viagem", "Vou viajar para São Paulo, abraços!", new AuthorDTO(alex));
 
 
         postRepository.saveAll(Arrays.asList(post1, post2));
+
+        maria.getList().addAll(Arrays.asList(post1, post2));
+        userRepository.save(maria);
 
 
 

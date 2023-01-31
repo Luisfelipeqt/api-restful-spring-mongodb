@@ -1,6 +1,7 @@
 package com.feliperodrigues.workshopmongo.entities;
 
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.io.Serial;
@@ -19,6 +20,7 @@ public class User implements Serializable {
     private String name;
     private String email;
 
+    @DBRef(lazy = true)
     List<Post> list = new ArrayList<>();
 
 
