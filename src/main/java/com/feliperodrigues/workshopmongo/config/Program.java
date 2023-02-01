@@ -54,8 +54,6 @@ public class Program implements CommandLineRunner {
         post1.getList().addAll(Arrays.asList(c3));
 
 
-
-
         postRepository.saveAll(Arrays.asList(post1, post2));
 
         maria.getList().addAll(Arrays.asList(post1, post2));

@@ -1,15 +1,19 @@
 package com.feliperodrigues.workshopmongo.repository;
 
-import com.feliperodrigues.workshopmongo.entities.Post;
-import com.feliperodrigues.workshopmongo.entities.User;
+import java.util.List;
+
 import org.springframework.data.mongodb.repository.MongoRepository;
+import org.springframework.data.mongodb.repository.Query;
 import org.springframework.stereotype.Repository;
 
-import java.util.List;
+import com.feliperodrigues.workshopmongo.entities.Post;
 
 @Repository
 public interface PostRepository extends MongoRepository<Post, String> {
 
+	
+
+	
     List<Post> findByTittleContainingIgnoreCase(String text);
 
 }
